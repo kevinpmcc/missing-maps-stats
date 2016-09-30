@@ -16,3 +16,12 @@ function getData() {
       console.log('api call failed')
     })
 }
+
+function cleanData(data) {
+
+}
+
+module.exports = {
+  getData: getData,
+  cleanData: cleanData
+}

@@ -3,15 +3,15 @@ This app pulls data from the OpenStreetMap API and pushes it to Geckoboard
 
 Installation Instructions
 -------
-start by cloning this repository. In terminal or other Command line tool put in the below
+Start by cloning this repository. In terminal or other Command line tool put in the below
 
 <code>git clone https://github.com/kevinpmcc/rps-challenge.git</code>
 
-next move into the project folder by entering
+Move into the project folder by entering
 
 <code>cd rps-challenge</code>
 
-Next we need to install all depenedencies. I
+Install all depenedencies  
 <code>npm install</code>
 
 In order to push data to geckoboard you will need to supply your geckoboard api
@@ -19,20 +19,24 @@ key and store it in a .env file.
 
 <code>touch .env</code>
 
-within the .env file add using your secret key
+within the .env file add using your secret key  
+
 <code>GECKOBOARD_API_KEY=your_secret_key</code>
 
-to run tests
+To run tests  
+
 <code>npm test</code>
 
-to run program
+To run program  
+
 <code>node app/app.js</code>
 
 You should begin to see data appear in your terminal.
 
 Technology Used
 -------
-Node.js and Jasmine
+Node.js and Jasmine  
+
 I used node as its good at asynchronous behaviour. I did not feel any additional
 frameworks would be needed as it was a relatively simple program and there was
 no need to over complicate things.
@@ -40,13 +44,13 @@ no need to over complicate things.
 
 Process for creating
 ------------
-<b>Experiment with geckoboard</b>
+<b>Experiment with geckoboard</b>  
 The first thing I did was follow the
 [tutorial](https://developer.geckoboard.com/getting-started) for pushing a
 dataset to geckoboard. I then played with different types of data and how the
 widgets worked until I was happy I had decent understanding.
 
-<b>Find an API</b>
+<b>Find an API</b>  
 I tried to think of an API which would produce data I could imagine using
 myself. After quite a bit of googling I saw that Red Cross had a Missing Maps API. They
 hold Mapathons all over the world where people sign up and contribute to the
@@ -57,17 +61,23 @@ people mapped.
 The API is not hugely documented but I found the right end-point and played with
 pulling things down.
 
-<b>Building the app</b>
+<b>Building the app</b>  
 I started with pulling the data down from the API. I then decided what parts I
-wanted to use and so cleaned up the data. Each time there was new data I added
-this to an array. Next I added the setInterval function
-in app.js to have which was suprisingly easy. Finally I called the dataPush
-function with the dataArray which pushed it up to geckoboard.
+wanted to use and so cleaned up the data. For a Mapathon I decided 'users', 'roads' 
+and 'buildings' would be most tangible.
+
+Each time there was new data I added the JSON to an array.
+
+Next I added the setInterval in app.js so the getData functino would run periodically. For 
+an event every 10 mins would be effective. 
+
+Finally I created push.js and once the data had been pulled and cleaned I called the pushDataset
+function with the dataArray. This pushed the data up to Geckoboard.
 
 
 Challenges
 ----------
-<b>Missing Maps API updates not consistent.</b>
+<b>Missing Maps API updates not consistent.</b>  
 It seems the API data does not update periodically
 but everytime there is an edit. Also discovered that if I pushed two sets of
 data to geckoboard with the same datetime it would add the values together. To stop this
@@ -75,7 +85,7 @@ and keep the data being pushed clean I check if the API call data is updated
 since my last call. If it is not the program console logs 'no update' and does
 not make a data push.
 
-<b>Testing</b>
+<b>Testing</b>  
 I did not find an effective way to mock the API calls in my Jasmine tests which
 left me with very little to test. This was something I would be eager to rectify
 if I had to do the project again. 

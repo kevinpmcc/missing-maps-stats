@@ -18,7 +18,9 @@ function getData() {
 }
 
 function cleanData(data) {
-
+    delete data['changesets'];
+    delete data['edits'];
+    return data
 }
 
 module.exports = {

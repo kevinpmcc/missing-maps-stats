@@ -1,3 +1,6 @@
+
+var dataArray = [];
+
 function getData() {
   const request = require('request-promise')
 
@@ -9,7 +12,13 @@ function getData() {
 
   request(options)
     .then(function (response) {
-      console.log(response)
+      data = cleanData(response);
+      if(isUpdated(data)) {
+        dataArray.push(data)
+        console.log(dataArray)
+      } else {
+        console.log('no update')
+      }
     })
 
     .catch(function (err) {
@@ -23,7 +32,17 @@ function cleanData(data) {
     return data
 }
 
+function isUpdated(data) {
+  if (dataArray.length == 0) {
+    return true
+  } else {
+  return data.latest != dataArray[dataArray.length - 1].latest
+  }
+}
+
+
 module.exports = {
   getData: getData,
-  cleanData: cleanData
+  cleanData: cleanData,
+
 }

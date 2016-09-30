@@ -1,3 +1,4 @@
+var pushDataset = require('./push.js')
 
 var dataArray = [];
 
@@ -16,6 +17,7 @@ function getData() {
       if(isUpdated(data)) {
         dataArray.push(data)
         console.log(dataArray)
+        pushDataset(dataArray)
       } else {
         console.log('no update')
       }
@@ -44,5 +46,4 @@ function isUpdated(data) {
 module.exports = {
   getData: getData,
   cleanData: cleanData,
-
 }

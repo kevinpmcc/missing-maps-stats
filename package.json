@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/kevinpmcc/missing-maps-stats#readme",
   "dependencies": {
+    "dotenv": "^2.0.0",
+    "geckoboard": "^1.0.0",
     "jasmine-http-server-spy": "^0.3.0",
     "jasmine-node": "^1.14.5",
     "request": "^2.75.0",

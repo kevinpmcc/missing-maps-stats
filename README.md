@@ -1,5 +1,8 @@
 # missing-maps-stats
-This app pulls data from the OpenStreetMap API and pushes it to Geckoboard
+This app pulls data from the OpenStreetMap API and pushes it to Geckoboard. You can see the results
+at https://kevinpmcc.geckoboard.com/dashboards/41214090B7D97FD3
+
+This displays the current totals and also the change since the last update.
 
 Installation Instructions
 -------

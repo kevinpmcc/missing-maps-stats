@@ -23,5 +23,8 @@
     "jasmine-node": "^1.14.5",
     "request": "^2.75.0",
     "request-promise": "^4.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.6.1"
   }
 }
